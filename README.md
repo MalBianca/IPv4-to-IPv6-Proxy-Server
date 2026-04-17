@@ -1,15 +1,19 @@
-# IPv4-to-IPv6-Proxy-Server
+# Proxy Server in C
 
+This project is a proxy server written in C that:
 
-A specialized proxy server developed in C that acts as a bridge between IPv4 clients and IPv6 web servers. The server listens for specific command-based triggers to fetch, display, and log web content.
+* **Listens for IPv4 client connections** on port 22126.
+* **Responds to specific commands** ( 01#) by connecting to an IPv6 server, fetching content (an HTML page), and:
+    * Sending it back to the IPv4 client.
+    * Saving it to a local file (pagina.html).
+    * Displaying it in the server's terminal.
 
-## Key Features
+## Features
 
-* **Dual-Stack Connectivity:** Seamless communication between IPv4 (client-side) and IPv6 (server-side) protocols using C sockets.
-* **Command-Based Interface:** Responds to custom control sequences (e.g., `01#` for data fetch).
-* **HTTP Protocol Handling:** Manages raw HTTP GET requests and processes responses from IPv6 endpoints.
-* **Multi-Output Logging:** * Streams fetched content back to the **IPv4 client**.
-    * Displays real-time data in the **server terminal**.
-    * Persists data locally in `pagina.html`.
+* **IPv4 and IPv6 Support:** Uses sockets for both protocols to communicate between clients and servers.
+* **HTTP Protocol Handling:** Sends HTTP GET requests and processes responses from the IPv6 endpoint.
+* **Command-Based Interface:** Responds to specific text commands received from the client.
+* **Error Management:** Provides meaningful error messages and ensures cleanup of resources.
+* **File Logging:** Saves the fetched content to a file (pagina.html).
 
 
